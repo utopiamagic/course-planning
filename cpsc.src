@@ -1,0 +1,155 @@
+digraph G {
+
+	//subgraph noncpsc {
+		"MATH 101" [label="Calculus II"]
+		"MATH 200" [label="Calculus III"]
+		"MATH 221" [label="Matrix Algebra"]
+		"STAT 241" [label="Intro Prob & Stat"]
+		"MATH 200" -> "MATH 101";
+		"MATH 221" -> "MATH 101";
+		"STAT 241" -> "MATH 101";
+	//}
+
+	subgraph core {
+		//node [style=filled];
+		label = "Core Curriculum";
+		color = blue;
+		
+		"CPSC 110" [label="Systematic Program Design"]
+		"CPSC 121" [label="Models of Computation"]
+		"CPSC 121" -> "CPSC 110";
+		
+		"CPSC 210" [label="Software Construction"]
+		"CPSC 210" -> {"CPSC 110" "CPSC 121"};
+
+		"CPSC 213" [label="Intro to Computer Systems"]
+		"CPSC 213" -> {"CPSC 121" "CPSC 210"};
+		// Introduction to Computer Systems
+
+		"CPSC 221" [label="Basic DS&A"]
+		"CPSC 221" -> {"CPSC 210" "CPSC 121"};
+		// CPSC 221 Basic Algorithms and Data Structures
+		
+		"CPSC 310" [label="Intro to SE"]
+		"CPSC 310" -> "CPSC 210";
+		//CPSC 310 Introduction to Software Engineering
+		
+		"CPSC 313" [label="Operating Systems"]
+		"CPSC 313" -> {"CPSC 213" "CPSC 221"};
+		//Computer Hardware and Operating Systems
+
+		"CPSC 320" [label="Interm. DS&A"]
+		"CPSC 320" -> "CPSC 221";
+		"CPSC 320" -> {"MATH 200" "MATH 221" "STAT 241"} [style=dotted]
+		//"2nd Yr. MATH | STAT" 
+		//"CPSC 320" -> "MATH 221" [style=dotted]
+		//Intermediate Algorithms and Data Structures
+	}
+	
+	subgraph analysis {
+		//node [style=filled];
+		label = "Data Analysis (Alternative: Combined Major with Statistics)"	
+	}
+	
+	subgraph databases {
+		//node [style=filled];
+		label = "Databases"	
+	}
+	
+	subgraph core {
+		//node [style=filled];
+		label = "Graphics/Animation"	
+	}
+	
+	subgraph hci {
+		//node [style=filled];
+		label = "HCI (Alternative: Cognitive Systems – Computational Intelligence and Design)"	
+	}
+	
+	//https://www.cs.ubc.ca/students/undergrad/programs/streams
+		
+	"CPSC 302/3" [label="Numerical Computation"]
+	"CPSC 302/3" -> {"CPSC 110" "MATH 101" "MATH 221"};
+	// Numerical Computation for Algebraic Problems
+	
+	"CPSC 304" [label="Intro to RDB"]
+	"CPSC 304" -> "CPSC 221";
+	//Introduction to Relational Databases
+	
+	"CPSC 311" [label="Def of Programming Languages"]
+	"CPSC 311" -> "CPSC 210";
+	//CPSC 311 Definition of Programming Languages
+	
+	"CPSC 312" [label="Logic Programming"]
+	"CPSC 312" -> "CPSC 210";
+	//CPSC 312 Functional and Logic Programming
+
+
+	"CPSC 314" [label="Computer Graphics"]
+	"CPSC 314" -> {"MATH 200" "MATH 221" "CPSC 221"};
+
+	"CPSC 317" [label="Internet Computing"]
+	"CPSC 317" -> {"CPSC 213" "CPSC 221"};
+	
+	"CPSC 322" [label="Intro to AI"]
+	"CPSC 322" -> "CPSC 221";
+	//Introduction to Artificial Intelligence
+	
+	"CPSC 340" [label="Machine Learning"]
+	"CPSC 340" -> {"CPSC 221" "MATH 200" "STAT 241" "MATH 221"};
+	//Machine Learning and Data Mining
+	
+	"CPSC 344" [label="Intro to HCI"]
+	"CPSC 344" -> "CPSC 210";
+	//CPSC 344 Introduction to Human Computer Interaction Methods
+	
+
+	"CPSC 404" [label="Advanced RDB"]
+	"CPSC 404" -> "CPSC 304" "CPSC 213";
+	//Advanced Relational Databases
+	
+	"CPSC 406" [label="Computational Optimization"]
+	"CPSC 406" -> "CPSC 302/3";
+	
+	"CPSC 410" [label="Advanced SE"]
+	"CPSC 410" -> "CPSC 310"
+	//Advanced Software Engineering
+
+	"CPSC 411" [label="Intro to Compiler"]
+	"CPSC 411" -> {"CPSC 311" "CPSC 213"}
+	// Introduction to Compiler Construction
+	
+	"CPSC 416" [label="Distributed Systems"]
+	"CPSC 416" -> {"CPSC 313" "CPSC 317"}
+	//Distributed Systems
+	
+	"CPSC 415" [label="Advanced OS"]
+	"CPSC 415" -> "CPSC 313"
+	//Advanced Operating Systems
+	
+	"CPSC 418" [label="Parallel Computation"]
+	"CPSC 418" -> {"CPSC 313" "CPSC 320"}
+
+	"CPSC 420" [label="Advanced DS&A"]
+	"CPSC 420" -> "CPSC 320";
+	//Advanced Algorithms Design and Analysis
+
+	"CPSC 422" [label="Intelligent Systems"]
+	"CPSC 422" -> "CPSC 322";
+
+	"CPSC 421" [label="Theory of Computing"]
+	"CPSC 421" -> "CPSC 221" 
+	"CPSC 421" -> "CPSC 320" [style=dotted]
+	//Introduction to Theory of Computing
+
+	"CPSC 425" [label="Computer Vision"]
+	"CPSC 425" -> {"CPSC 221" "MATH 200" "MATH 221"};
+
+	"CPSC 426" [label="Computer Animation"]
+	"CPSC 426" -> "CPSC 314";
+
+	"CPSC 444" [label="Advanced HCI"]
+	"CPSC 444" -> {"CPSC 310" "CPSC 344" "STAT 241"};
+	//Advanced Methods for Human Computer Interaction
+}
+	
