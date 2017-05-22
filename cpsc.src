@@ -20,7 +20,7 @@ digraph G {
 		"CPSC 121" -> "CPSC 110";
 		
 		"CPSC 210" [label="Software Construction"]
-		"CPSC 210" -> {"CPSC 110" "CPSC 121"};
+		"CPSC 210" -> "CPSC 110";
 
 		"CPSC 213" [label="Intro to Computer Systems"]
 		"CPSC 213" -> {"CPSC 121" "CPSC 210"};
@@ -141,6 +141,9 @@ digraph G {
 	"CPSC 421" -> "CPSC 221" 
 	"CPSC 421" -> "CPSC 320" [style=dotted]
 	//Introduction to Theory of Computing
+
+	"CPSC 424" [label="Geometric Modeling"]
+	"CPSC 424" -> {"CPSC 314" "CPSC 320" "MATH 221"};
 
 	"CPSC 425" [label="Computer Vision"]
 	"CPSC 425" -> {"CPSC 221" "MATH 200" "MATH 221"};
